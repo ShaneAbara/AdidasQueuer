@@ -65,15 +65,12 @@ marketDomains = {
 def main():
     print(
         """
-              _ _     _              ____
-     /\      | (_)   | |            / __ \
+              _ _     _              ____   Twitter - https://twitter.com/hunter_bdm
+     /\      | (_)   | |            / __ \  Github - https://github.com/hunterbdm
     /  \   __| |_  __| | __ _ ___  | |  | |_   _  ___ _   _  ___ _ __
    / /\ \ / _` | |/ _` |/ _` / __| | |  | | | | |/ _ \ | | |/ _ \ '__|
   / ____ \ (_| | | (_| | (_| \__ \ | |__| | |_| |  __/ |_| |  __/ |
  /_/    \_\__,_|_|\__,_|\__,_|___/  \___\_\\\\__,_|\___|\__,_|\___|_|
-
-                Twitter - https://twitter.com/hunter_bdm
-                Github - https://github.com/hunterbdm
         """
     )
 
