@@ -3,7 +3,6 @@ import time
 import threading
 
 from selenium import webdriver
-from flask import render_template
 
 
 adidas_host = None
@@ -62,20 +61,22 @@ marketDomains = {
     'ZA': 'adidas.co.za'
 }
 
+
 def main():
     print(
         """
               _ _     _              ____
-     /\      | (_)   | |            / __ \    @Hunter_bdm
+     /\      | (_)   | |            / __ \
     /  \   __| |_  __| | __ _ ___  | |  | |_   _  ___ _   _  ___ _ __
    / /\ \ / _` | |/ _` |/ _` / __| | |  | | | | |/ _ \ | | |/ _ \ '__|
   / ____ \ (_| | | (_| | (_| \__ \ | |__| | |_| |  __/ |_| |  __/ |
  /_/    \_\__,_|_|\__,_|\__,_|___/  \___\_\\\\__,_|\___|\__,_|\___|_|
 
+                Twitter - https://twitter.com/hunter_bdm
+                Github - https://github.com/hunterbdm
         """
     )
 
-    global server_host
     global adidas_host
     country_code = input('Enter country code: ').upper()
 
@@ -124,6 +125,11 @@ def start(url, proxies=None):
 
 
 def _start(url, proxy):
+    """
+    :param url: Adidas Queue page url
+    :param proxies: Array of proxies, or None if no proxies
+    :return: none
+    """
     session = requests.Session()
 
     # Update User-Agent in session's headers
@@ -147,6 +153,7 @@ def _start(url, proxy):
     while True:
         time.sleep(1.5)
         resp = session.get(url, proxies=proxies)
+        # If captcha is on page then we got through splash.
         if 'data-sitekey' in resp.text:
             if proxy:
                 print('Proxy ' + proxy + ' got through queue. Transferring session.')
